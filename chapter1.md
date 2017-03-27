@@ -10,42 +10,9 @@
 
 
 
-## Google Net (2014)
-| | | |
-|:-- |:-- |:-- |
-|![GoogleNet-Top](./img/googlenet_top.png) | ![GoogleNet-Middle](./img/googlenet_mid.png) |![GoogleNet-Bottom](./img/googlenet_bottom.png) |
 
-主要的创新在于他的Inception，这是一种网中网（Network In Network）的结构，即原来的结点也是一个网络。Inception一直在不断发展，目前已经V2、V3、V4。Inception的结构如下图所示，其中1*1卷积主要用来降维，用了Inception之后整个网络结构的宽度和深度都可扩大，能够带来2-3倍的性能提升。
-![GoogleNet-Part](./img/googlenet_part.png)
 
-- [v1 2014] Going Deeper with Convolutions, 6.67% test error
-Inception v1的网络，将1x1，3x3，5x5的conv和3x3的pooling，stack在一起，一方面增加了网络的width，另一方面增加了网络对尺度的适应性；
-![GoogleNet](./img/googlenet.png)
 
-- [v2] Batch Normalization: Accelerating Deep Network Training by Reducing Internal Covariate Shift, 4.8% test error
-v2的网络在v1的基础上，进行了改进，一方面了加入了BN层，减少了Internal Covariate Shift（内部neuron的数据分布发生变化），使每一层的输出都规范化到一个N(0, 1)的高斯，另外一方面学习VGG用2个3x3的conv替代inception模块中的5x5，既降低了参数数量，也加速计算；
-
-- [v3] Rethinking the Inception Architecture for Computer Vision, 3.5% test error
-v3一个最重要的改进是分解（Factorization），将7x7分解成两个一维的卷积（1x7,7x1），3x3也是一样（1x3,3x1），这样的好处，既可以加速计算（多余的计算能力可以用来加深网络），又可以将1个conv拆成2个conv，使得网络深度进一步增加，增加了网络的非线性，还有值得注意的地方是网络输入从224x224变为了299x299，更加精细设计了35x35/17x17/8x8的模块；
-
-- [v4] Inception-v4, Inception-ResNet and the Impact of Residual Connections on Learning, 3.08% test error
-v4研究了Inception模块结合Residual Connection能不能有改进？发现ResNet的结构可以极大地加速训练，同时性能也有提升，得到一个Inception-ResNet v2网络，同时还设计了一个更深更优化的Inception v4模型，能达到与Inception-ResNet v2相媲美的性能。
-
-## Residual Net (2015)
-| | |
-|:-- |:-- |
-|![ResNet](./img/resnet_top.png)|![ResNet](./img/resnet_bottom.png)|
-
-Paper:
-Deep Residual Learning for Image Recognition(Kaiming He-CVPR2015)
-
-![ResNet](./img/resnet.png)
-主要的创新在残差网络，如下图所示，其实这个网络的提出本质上还是要解决层次比较深的时候无法训练的问题。这种借鉴了Highway Network思想的网络相当于旁边专门开个通道使得输入可以直达输出，而优化的目标由原来的拟合输出H(x)变成输出和输入的差H(x)-x，其中H(X)是某一层原始的的期望映射输出，x是输入。
-![ResNet-Part](./img/resnet-part.png)
-
-注意虚线部分均处于维度增加部分，亦即卷积核数目倍增的过程，这时进行`F(x) + x` 就会出现二者维度不匹配，这里论文中采用两种方法解决这一问题(其实是三种，但通过实验发现第三种方法会使performance急剧下降，故不采用):
-* zero_padding: 对恒等层进行0填充的方式将维度补充完整。这种方法不会增加额外的参数
-* projection: 在恒等层采用1x1的卷积核来增加维度。这种方法会增加额外的参数
 
 # 框架
 ## MXNet
