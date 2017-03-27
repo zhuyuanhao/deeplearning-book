@@ -4,7 +4,11 @@
 * [参考资料](Inference.md)
 
 ## 经典模型
+* [LeNet](model/lenet.md)
 * [AlexNet](model/alexnet.md)
+* [VGG](model/vgg.md)
+* [GoogleNet](model/googlenet.md)
+* [ResNet](model/resnet.md)
 
 ## 数据集
 
