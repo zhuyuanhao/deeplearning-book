@@ -8,11 +8,7 @@
 
 
 
-## VGG Net (2014)
-![VGG](./img/vgg.png)
-Paper:
-Very Deep Convolutional Networks for Large-Scale Image Recognition(K Simonyan-CVPR2014)
-Homepage：http://www.robots.ox.ac.uk/~vgg/research/very_deep/
+
 
 ## Google Net (2014)
 | | | |
