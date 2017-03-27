@@ -19,6 +19,9 @@
 * [MXNet](framework/mxnet.md)
 * [Torch](framework/torch.md)
 
+## 深度学习名人
+* [Alex](people/alex.md)
+
 
 
 
