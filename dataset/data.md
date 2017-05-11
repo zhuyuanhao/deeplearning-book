@@ -35,6 +35,7 @@ Imagenet数据集是一个非常优秀的数据集，但是标注难免会有错
     * train: 1000类，1281167张图片
     * val: 50k张图片
     * test: 100k张图片
+
 ## COCO
 数据集大小：~40GB
 下载地址：http://mscoco.org/
