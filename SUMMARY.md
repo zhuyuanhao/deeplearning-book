@@ -17,8 +17,9 @@
 * [概述](dataset/data.md)
 
 ## 研究领域
-* [Object Segmentation](field/objectseg.md)
 
+* [Object Segmentation](field/objectseg.md)
+* [Distributed Training](field/training.md)
 
 ## 深度学习框架
 
