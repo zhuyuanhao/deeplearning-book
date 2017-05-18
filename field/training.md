@@ -40,3 +40,5 @@
 
 Soft synchronization：每次参数服务器在获得s次梯度更新后再更新参数，其中`(1<=s<=n)`
 
+MXNet中参数服务器的实现：https://github.com/dmlc/ps-lite
+
